@@ -8,6 +8,8 @@
 
 #import "STXOField.h"
 
+#define EMPTY_CELL @""
+
 @implementation STXOField
 
 + (STXOField *)initWithHCount:(int)hcount VCount:(int)vcount {
@@ -31,7 +33,7 @@
             [values insertObject:[NSMutableArray arrayWithCapacity:self.vcount] atIndex:h];
             
             for (int v = 0; v < self.vcount; v++) {
-                [values[h] insertObject:@"" atIndex:v];
+                [values[h] insertObject:EMPTY_CELL atIndex:v];
             }
             
         }
@@ -49,20 +51,28 @@
         
         if ([move isEqualToString:@"X"] || [move isEqualToString:@"O"]) {
             
-            [self.values[h] replaceObjectAtIndex:v withObject:move];
-            return YES;
+            if ([self.values[h][v] isEqualToString:EMPTY_CELL]) {
+
+                [self.values[h] replaceObjectAtIndex:v withObject:move];
+                return YES;
+
+            } else {
+                return NO;
+            }
 
         } else {
-            
             return NO;
-            
         }
 
     } else {
-        
         return NO;
-        
     }
+    
+}
+
+- (NSString *)valueForH:(int)h V:(int)v {
+    
+    return (v < self.vcount && h < self.hcount) ? self.values[h][v] : nil;
     
 }
 

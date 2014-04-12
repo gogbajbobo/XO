@@ -16,5 +16,6 @@
 
 + (STXOField *)initWithHCount:(int)hcount VCount:(int)vcount;
 - (BOOL)move:(NSString *)move toH:(int)h V:(int)v;
+- (NSString *)valueForH:(int)h V:(int)v;
 
 @end

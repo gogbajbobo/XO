@@ -7,11 +7,9 @@
 //
 
 #import "STXOViewController.h"
-#import "STXOField.h"
+#import "STXOGamePlay.h"
 
 @interface STXOViewController ()
-
-@property (nonatomic, strong) STXOField *field;
 
 @end
 
@@ -19,7 +17,15 @@
 
 - (void)customViewInit {
     
-    STXOField *field = [STXOField initWithHCount:3 VCount:3];
+    STXOPlayer *pX = [[STXOPlayer alloc] init];
+    pX.name = @"Xname";
+    
+    STXOPlayer *pO = [[STXOPlayer alloc] init];
+    pO.name = @"Oname";
+    
+    STXOGamePlay *gamePlay = [STXOGamePlay startGameWithPlayerX:pX playerO:pO];
+    
+    STXOField *field = gamePlay.field;
     
     [field move:@"O" toH:0 V:0];
     [field move:@"X" toH:1 V:1];
@@ -28,6 +34,9 @@
     [field move:@"X" toH:4 V:5];
         
     NSLog(@"%@", field.values);
+    NSLog(@"00 %@", [field valueForH:0 V:0]);
+    NSLog(@"01 %@", [field valueForH:0 V:1]);
+    NSLog(@"45 %@", [field valueForH:4 V:5]);
     
 }
 

@@ -23,6 +23,8 @@
 		2CFCD17918F9304B002DC1A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD17718F9304B002DC1A6 /* InfoPlist.strings */; };
 		2CFCD17B18F9304B002DC1A6 /* XOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD17A18F9304B002DC1A6 /* XOTests.m */; };
 		2CFCD18718F93120002DC1A6 /* STXOField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD18618F93120002DC1A6 /* STXOField.m */; };
+		2CFCD18A18F94433002DC1A6 /* STXOGamePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD18918F94433002DC1A6 /* STXOGamePlay.m */; };
+		2CFCD18D18F9449A002DC1A6 /* STXOPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD18C18F9449A002DC1A6 /* STXOPlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		2CFCD17A18F9304B002DC1A6 /* XOTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XOTests.m; sourceTree = "<group>"; };
 		2CFCD18518F93120002DC1A6 /* STXOField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STXOField.h; sourceTree = "<group>"; };
 		2CFCD18618F93120002DC1A6 /* STXOField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STXOField.m; sourceTree = "<group>"; };
+		2CFCD18818F94433002DC1A6 /* STXOGamePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STXOGamePlay.h; sourceTree = "<group>"; };
+		2CFCD18918F94433002DC1A6 /* STXOGamePlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STXOGamePlay.m; sourceTree = "<group>"; };
+		2CFCD18B18F9449A002DC1A6 /* STXOPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STXOPlayer.h; sourceTree = "<group>"; };
+		2CFCD18C18F9449A002DC1A6 /* STXOPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STXOPlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,10 @@
 			children = (
 				2CFCD18518F93120002DC1A6 /* STXOField.h */,
 				2CFCD18618F93120002DC1A6 /* STXOField.m */,
+				2CFCD18B18F9449A002DC1A6 /* STXOPlayer.h */,
+				2CFCD18C18F9449A002DC1A6 /* STXOPlayer.m */,
+				2CFCD18818F94433002DC1A6 /* STXOGamePlay.h */,
+				2CFCD18918F94433002DC1A6 /* STXOGamePlay.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -272,8 +282,10 @@
 			files = (
 				2CFCD18718F93120002DC1A6 /* STXOField.m in Sources */,
 				2CFCD15D18F9304B002DC1A6 /* STXOAppDelegate.m in Sources */,
+				2CFCD18D18F9449A002DC1A6 /* STXOPlayer.m in Sources */,
 				2CFCD16618F9304B002DC1A6 /* STXOViewController.m in Sources */,
 				2CFCD15918F9304B002DC1A6 /* main.m in Sources */,
+				2CFCD18A18F94433002DC1A6 /* STXOGamePlay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
