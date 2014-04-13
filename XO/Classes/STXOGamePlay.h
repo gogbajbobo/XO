@@ -12,10 +12,20 @@
 
 @interface STXOGamePlay : NSObject
 
+typedef struct STXOMove {
+    int h;
+    int v;
+    char gamePic;
+} STXOMove;
+
 @property (nonatomic, strong, readonly) STXOPlayer *playerX;
 @property (nonatomic, strong, readonly) STXOPlayer *playerO;
+@property (nonatomic, strong, readonly) STXOPlayer *currentPlayer;
 @property (nonatomic, strong, readonly) STXOField *field;
+@property (nonatomic, readonly) STXOMove lastMove;
 
-+ (STXOGamePlay *)startGameWithPlayerX:(STXOPlayer *)pX playerO:(STXOPlayer *)pO;
++ (STXOGamePlay *)startGameWithPlayers:(NSArray *)players;
+
+- (BOOL)move:(NSString *)move toH:(int)h V:(int)v;
 
 @end

@@ -17,26 +17,23 @@
 
 - (void)customViewInit {
     
-    STXOPlayer *pX = [[STXOPlayer alloc] init];
-    pX.name = @"Xname";
+    STXOPlayer *p1 = [[STXOPlayer alloc] init];
+    p1.name = @"Xname";
     
-    STXOPlayer *pO = [[STXOPlayer alloc] init];
-    pO.name = @"Oname";
+    STXOPlayer *p2 = [[STXOPlayer alloc] init];
+    p2.name = @"Oname";
     
-    STXOGamePlay *gamePlay = [STXOGamePlay startGameWithPlayerX:pX playerO:pO];
+    STXOGamePlay *gamePlay = [STXOGamePlay startGameWithPlayers:[NSArray arrayWithObjects:p1, p2, nil]];
     
-    STXOField *field = gamePlay.field;
+    [gamePlay move:@"X" toH:0 V:0];
+    [gamePlay move:@"X" toH:2 V:2];
+    [gamePlay move:@"X" toH:2 V:0];
+    [gamePlay move:@"X" toH:0 V:2];
+    [gamePlay move:@"X" toH:1 V:1];
+    [gamePlay move:@"X" toH:2 V:1];
+    [gamePlay move:@"X" toH:1 V:2];
     
-    [field move:@"O" toH:0 V:0];
-    [field move:@"X" toH:1 V:1];
-    [field move:@"X" toH:1 V:2];
-    [field move:@"F" toH:2 V:2];
-    [field move:@"X" toH:4 V:5];
-        
-    NSLog(@"%@", field.values);
-    NSLog(@"00 %@", [field valueForH:0 V:0]);
-    NSLog(@"01 %@", [field valueForH:0 V:1]);
-    NSLog(@"45 %@", [field valueForH:4 V:5]);
+    NSLog(@"%@", gamePlay.field.values);
     
 }
 

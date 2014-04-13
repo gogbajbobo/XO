@@ -11,5 +11,6 @@
 @interface STXOPlayer : NSObject
 
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *gamePic;
 
 @end

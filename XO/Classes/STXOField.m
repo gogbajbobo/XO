@@ -45,6 +45,35 @@
     
 }
 
+- (NSMutableArray *)cells {
+    
+    if (!_cells) {
+        
+        NSMutableArray *cells = [NSMutableArray arrayWithCapacity:self.hcount];
+        
+        for (int h = 0; h < self.hcount; h++) {
+            
+            [cells insertObject:[NSMutableArray arrayWithCapacity:self.vcount] atIndex:h];
+            
+            for (int v = 0; v < self.vcount; v++) {
+                STXOCell cell;
+                cell.h = h - 1;
+                cell.v = v - 1;
+                cell.gamePic = (char)[EMPTY_CELL UTF8String];
+                NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
+                [cells[h] insertObject:cellValue atIndex:v];
+            }
+            
+        }
+        
+        _cells = cells;
+        
+    }
+    return _cells;
+    
+}
+
+
 - (BOOL)move:(NSString *)move toH:(int)h V:(int)v {
     
     if (h < self.hcount && v < self.vcount) {
@@ -52,8 +81,15 @@
         if ([move isEqualToString:@"X"] || [move isEqualToString:@"O"]) {
             
             if ([self.values[h][v] isEqualToString:EMPTY_CELL]) {
-
+                
                 [self.values[h] replaceObjectAtIndex:v withObject:move];
+                
+                STXOCell cell;
+                [self.cells[h][v] getValue:&cell];
+                cell.gamePic = (char)[move UTF8String];
+                NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
+                [self.cells[h] replaceObjectAtIndex:v withObject:cellValue];
+                
                 return YES;
 
             } else {

@@ -8,11 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef struct STXOCell {
+    int h;
+    int v;
+    char gamePic;
+} STXOCell;
+
 @interface STXOField : NSObject
 
 @property (nonatomic) int hcount;
 @property (nonatomic) int vcount;
 @property (nonatomic, strong) NSMutableArray *values;
+@property (nonatomic, strong) NSMutableArray *cells;
 
 + (STXOField *)initWithHCount:(int)hcount VCount:(int)vcount;
 - (BOOL)move:(NSString *)move toH:(int)h V:(int)v;
