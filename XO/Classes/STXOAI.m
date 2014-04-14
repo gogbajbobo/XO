@@ -38,7 +38,7 @@
             
             sum += cell.value;
             
-            NSLog(@"%d %d", sum, cell.h);
+//            NSLog(@"%d %d", sum, cell.h);
             
         }
         

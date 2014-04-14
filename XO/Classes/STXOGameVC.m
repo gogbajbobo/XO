@@ -39,18 +39,44 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellViewCell" forIndexPath:indexPath];
-    [[cell.contentView viewWithTag:1] removeFromSuperview];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, cell.contentView.frame.size.width, cell.contentView.frame.size.height)];
-    imageView.image = [UIImage imageNamed:@"XO.png"];
-    imageView.tag = 1;
-    [cell.contentView addSubview:imageView];
-    
-    NSLog(@"%f", cell.frame.origin.x);
-    
+    cell = [self insertImageNamed:@"XO.png" intoCell:cell];
+
     return cell;
     
 }
 
+- (UICollectionViewCell *)insertImageNamed:(NSString *)imageName intoCell:(UICollectionViewCell *)cell {
+    
+    [[cell.contentView viewWithTag:1] removeFromSuperview];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, cell.contentView.frame.size.width, cell.contentView.frame.size.height)];
+    imageView.image = [UIImage imageNamed:imageName];
+    imageView.tag = 1;
+    [cell.contentView addSubview:imageView];
+
+    return cell;
+    
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *gamePic = self.gamePlay.currentPlayer.gamePic;
+    
+    BOOL GVC = [self.gamePlay move:gamePic toH:indexPath.section V:indexPath.row];
+    
+//    NSLog(@"GVC %d", GVC);
+    
+    if (GVC) {
+        
+        UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+        cell = [self insertImageNamed:[NSString stringWithFormat:@"XO%@.png", gamePic] intoCell:cell];
+        
+//        [self.fieldCV reloadItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+        
+    }
+    
+    NSLog(@"%d %d", indexPath.section, indexPath.row);
+    
+}
 
 #pragma mark - view init
 
@@ -85,13 +111,13 @@
 //    
 //    NSLog(@"%d", [gamePlay.field intValueForH:0 V:1]);
     
-    [self.gamePlay move:@"X" toH:0 V:0];
-    [self.gamePlay move:@"X" toH:0 V:1];
-    [self.gamePlay move:@"X" toH:0 V:2];
-    [self.gamePlay move:@"X" toH:1 V:1];
-    [self.gamePlay move:@"X" toH:2 V:2];
-    
-    NSLog(@"%@", self.gamePlay.field.cells);
+//    [self.gamePlay move:@"X" toH:0 V:0];
+//    [self.gamePlay move:@"X" toH:0 V:1];
+//    [self.gamePlay move:@"X" toH:0 V:2];
+//    [self.gamePlay move:@"X" toH:1 V:1];
+//    [self.gamePlay move:@"X" toH:2 V:2];
+//    
+//    NSLog(@"%@", self.gamePlay.field.cells);
     
     [p2 fieldAnalyze];
 

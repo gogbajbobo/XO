@@ -64,21 +64,32 @@
     
 //    if ([self.field move:move toH:h V:v]) {
     
-    if ([self.field setValue:self.currentPlayer.gameValue toH:h V:v]) {
+    BOOL GP = [self.field setValue:self.currentPlayer.gameValue toH:h V:v];
+    
+//    NSLog(@"GP %d", GP);
+    
+    if (GP) {
 
-        if ([self checkMove]) {
+        STXOCell lastMove;
+        lastMove.h = h;
+        lastMove.v = v;
+        lastMove.gamePic = (char)[self.currentPlayer.gamePic UTF8String];
+        self.lastMove = lastMove;
+        self.currentPlayer = (self.currentPlayer == self.playerX) ? self.playerO : self.playerX;
+        
+        NSValue *move = [NSValue valueWithBytes:&lastMove objCType:@encode(STXOCell)];
+        [self.field.cells[h] replaceObjectAtIndex:v withObject:move];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"lastMove" object:self userInfo:[NSDictionary dictionaryWithObject:move forKey:@"move"]];
 
-            STXOCell lastMove;
-            lastMove.h = h;
-            lastMove.v = v;
-            lastMove.gamePic = (char)[self.currentPlayer.gamePic UTF8String];
-            self.lastMove = lastMove;
-            self.currentPlayer = (self.currentPlayer == self.playerX) ? self.playerO : self.playerX;
-            
-            NSValue *move = [NSValue valueWithBytes:&lastMove objCType:@encode(STXOCell)];
-            [self.field.cells[h] replaceObjectAtIndex:v withObject:move];
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"lastMove" object:self userInfo:[NSDictionary dictionaryWithObject:move forKey:@"move"]];
+        
+        BOOL CM = [self checkMove];
+        
+//        NSLog(@"CM %d", CM);
+        
+        return YES;
+
+        if (CM) {
             
             return YES;
 
@@ -92,7 +103,13 @@
 
 - (BOOL)checkMove {
     
-    return ([self checkHorizontal] || [self checkVertical] || [self checkDiagonal]);
+    BOOL CH = [self checkHorizontal];
+    BOOL CV = [self checkVertical];
+    BOOL CD = [self checkDiagonal];
+    
+//    NSLog(@"CH%d, CV%d, CD%d", CH, CV, CD);
+    
+    return (CH || CV || CD);
     
 }
 
