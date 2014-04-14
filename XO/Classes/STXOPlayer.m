@@ -10,4 +10,12 @@
 
 @implementation STXOPlayer
 
+- (STXOCell)makeMove {
+    
+    STXOCell cell;
+    return cell;
+    
+}
+
+
 @end

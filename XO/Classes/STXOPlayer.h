@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STXOField.h"
 
 @interface STXOPlayer : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *gamePic;
+@property (nonatomic) int gameValue;
+@property (nonatomic, strong) STXOField *field;
+
+- (STXOCell)makeMove;
+
 
 @end

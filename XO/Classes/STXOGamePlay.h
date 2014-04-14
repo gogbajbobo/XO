@@ -12,17 +12,17 @@
 
 @interface STXOGamePlay : NSObject
 
-typedef struct STXOMove {
-    int h;
-    int v;
-    char gamePic;
-} STXOMove;
+//typedef struct STXOMove {
+//    int h;
+//    int v;
+//    char gamePic;
+//} STXOMove;
 
 @property (nonatomic, strong, readonly) STXOPlayer *playerX;
 @property (nonatomic, strong, readonly) STXOPlayer *playerO;
 @property (nonatomic, strong, readonly) STXOPlayer *currentPlayer;
 @property (nonatomic, strong, readonly) STXOField *field;
-@property (nonatomic, readonly) STXOMove lastMove;
+@property (nonatomic, readonly) STXOCell lastMove;
 
 + (STXOGamePlay *)startGameWithPlayers:(NSArray *)players;
 

@@ -1,2 +1,8 @@
 
 *.xcbkptlist
+
+*.pbxproj
+
+XO.xcodeproj/project.pbxproj
+
+XO.xcodeproj/project.pbxproj

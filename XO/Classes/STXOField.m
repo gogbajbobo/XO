@@ -8,7 +8,7 @@
 
 #import "STXOField.h"
 
-#define EMPTY_CELL @""
+#define EMPTY_CELL ((char)"")
 
 @implementation STXOField
 
@@ -19,29 +19,6 @@
     field.vcount = vcount;
     
     return field;
-    
-}
-
-- (NSMutableArray *)values {
-    
-    if (!_values) {
-        
-        NSMutableArray *values = [NSMutableArray arrayWithCapacity:self.hcount];
-        
-        for (int h = 0; h < self.hcount; h++) {
-            
-            [values insertObject:[NSMutableArray arrayWithCapacity:self.vcount] atIndex:h];
-            
-            for (int v = 0; v < self.vcount; v++) {
-                [values[h] insertObject:EMPTY_CELL atIndex:v];
-            }
-            
-        }
-        
-        _values = values;
-        
-    }
-    return _values;
     
 }
 
@@ -59,7 +36,8 @@
                 STXOCell cell;
                 cell.h = h - 1;
                 cell.v = v - 1;
-                cell.gamePic = (char)[EMPTY_CELL UTF8String];
+                cell.gamePic = EMPTY_CELL;
+                cell.value = 0;
                 NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
                 [cells[h] insertObject:cellValue atIndex:v];
             }
@@ -80,12 +58,11 @@
         
         if ([move isEqualToString:@"X"] || [move isEqualToString:@"O"]) {
             
-            if ([self.values[h][v] isEqualToString:EMPTY_CELL]) {
-                
-                [self.values[h] replaceObjectAtIndex:v withObject:move];
-                
-                STXOCell cell;
-                [self.cells[h][v] getValue:&cell];
+            STXOCell cell;
+            [self.cells[h][v] getValue:&cell];
+
+            if (cell.gamePic == EMPTY_CELL) {
+                                
                 cell.gamePic = (char)[move UTF8String];
                 NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
                 [self.cells[h] replaceObjectAtIndex:v withObject:cellValue];
@@ -106,9 +83,55 @@
     
 }
 
-- (NSString *)valueForH:(int)h V:(int)v {
+- (BOOL)setValue:(int)value toH:(int)h V:(int)v {
     
-    return (v < self.vcount && h < self.hcount) ? self.values[h][v] : nil;
+    if (h < self.hcount && v < self.vcount) {
+        
+        STXOCell cell;
+        [self.cells[h][v] getValue:&cell];
+
+        if (cell.value == 0) {
+            
+            cell.value = value;
+            
+            NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
+            [self.cells[h] replaceObjectAtIndex:v withObject:cellValue];
+            
+            return YES;
+            
+        }
+        
+    }
+
+    return NO;
+    
+}
+
+- (char)valueForH:(int)h V:(int)v {
+    
+    STXOCell cell;
+    [self.cells[h][v] getValue:&cell];
+    NSLog(@"%c", cell.gamePic);
+    return (v < self.vcount && h < self.hcount) ? cell.gamePic : (char)"";
+    
+}
+
+- (int)intValueForH:(int)h V:(int)v {
+
+    STXOCell cell;
+    [self.cells[h][v] getValue:&cell];
+
+    return cell.value;
+    
+//    char value = [self valueForH:h V:v];
+//
+//    if (strncmp(&value, "X", 1)) {
+//        return 1;
+//    } else if (strncmp(&value, "O", 1)) {
+//        return -1;
+//    } else {
+//        return 0;    
+//    }
     
 }
 
