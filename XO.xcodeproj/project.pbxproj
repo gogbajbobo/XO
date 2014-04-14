@@ -15,7 +15,6 @@
 		2CFCD15D18F9304B002DC1A6 /* STXOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD15C18F9304B002DC1A6 /* STXOAppDelegate.m */; };
 		2CFCD16018F9304B002DC1A6 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD15E18F9304B002DC1A6 /* Main_iPhone.storyboard */; };
 		2CFCD16318F9304B002DC1A6 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD16118F9304B002DC1A6 /* Main_iPad.storyboard */; };
-		2CFCD16618F9304B002DC1A6 /* STXOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD16518F9304B002DC1A6 /* STXOViewController.m */; };
 		2CFCD16818F9304B002DC1A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD16718F9304B002DC1A6 /* Images.xcassets */; };
 		2CFCD16F18F9304B002DC1A6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFCD16E18F9304B002DC1A6 /* XCTest.framework */; };
 		2CFCD17018F9304B002DC1A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFCD14C18F9304B002DC1A6 /* Foundation.framework */; };
@@ -25,6 +24,11 @@
 		2CFCD18718F93120002DC1A6 /* STXOField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD18618F93120002DC1A6 /* STXOField.m */; };
 		2CFCD18A18F94433002DC1A6 /* STXOGamePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD18918F94433002DC1A6 /* STXOGamePlay.m */; };
 		2CFCD18D18F9449A002DC1A6 /* STXOPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD18C18F9449A002DC1A6 /* STXOPlayer.m */; };
+		2CFCD1A818FBE273002DC1A6 /* STXOAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD1A518FBE273002DC1A6 /* STXOAI.m */; };
+		2CFCD1A918FBE273002DC1A6 /* STXOGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD1A718FBE273002DC1A6 /* STXOGameVC.m */; };
+		2CFCD1AE18FBE29A002DC1A6 /* XO.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD1AB18FBE29A002DC1A6 /* XO.png */; };
+		2CFCD1AF18FBE29A002DC1A6 /* XOO.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD1AC18FBE29A002DC1A6 /* XOO.png */; };
+		2CFCD1B018FBE29A002DC1A6 /* XOX.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD1AD18FBE29A002DC1A6 /* XOX.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +54,6 @@
 		2CFCD15C18F9304B002DC1A6 /* STXOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STXOAppDelegate.m; sourceTree = "<group>"; };
 		2CFCD15F18F9304B002DC1A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		2CFCD16218F9304B002DC1A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		2CFCD16418F9304B002DC1A6 /* STXOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STXOViewController.h; sourceTree = "<group>"; };
-		2CFCD16518F9304B002DC1A6 /* STXOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STXOViewController.m; sourceTree = "<group>"; };
 		2CFCD16718F9304B002DC1A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2CFCD16D18F9304B002DC1A6 /* XOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFCD16E18F9304B002DC1A6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -64,6 +66,13 @@
 		2CFCD18918F94433002DC1A6 /* STXOGamePlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STXOGamePlay.m; sourceTree = "<group>"; };
 		2CFCD18B18F9449A002DC1A6 /* STXOPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STXOPlayer.h; sourceTree = "<group>"; };
 		2CFCD18C18F9449A002DC1A6 /* STXOPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STXOPlayer.m; sourceTree = "<group>"; };
+		2CFCD1A418FBE273002DC1A6 /* STXOAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STXOAI.h; sourceTree = "<group>"; };
+		2CFCD1A518FBE273002DC1A6 /* STXOAI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STXOAI.m; sourceTree = "<group>"; };
+		2CFCD1A618FBE273002DC1A6 /* STXOGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STXOGameVC.h; sourceTree = "<group>"; };
+		2CFCD1A718FBE273002DC1A6 /* STXOGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STXOGameVC.m; sourceTree = "<group>"; };
+		2CFCD1AB18FBE29A002DC1A6 /* XO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = XO.png; sourceTree = "<group>"; };
+		2CFCD1AC18FBE29A002DC1A6 /* XOO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = XOO.png; sourceTree = "<group>"; };
+		2CFCD1AD18FBE29A002DC1A6 /* XOX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = XOX.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,13 +132,12 @@
 		2CFCD15218F9304B002DC1A6 /* XO */ = {
 			isa = PBXGroup;
 			children = (
+				2CFCD1AA18FBE282002DC1A6 /* Resources */,
 				2CFCD18418F930B2002DC1A6 /* Classes */,
 				2CFCD15B18F9304B002DC1A6 /* STXOAppDelegate.h */,
 				2CFCD15C18F9304B002DC1A6 /* STXOAppDelegate.m */,
 				2CFCD15E18F9304B002DC1A6 /* Main_iPhone.storyboard */,
 				2CFCD16118F9304B002DC1A6 /* Main_iPad.storyboard */,
-				2CFCD16418F9304B002DC1A6 /* STXOViewController.h */,
-				2CFCD16518F9304B002DC1A6 /* STXOViewController.m */,
 				2CFCD16718F9304B002DC1A6 /* Images.xcassets */,
 				2CFCD15318F9304B002DC1A6 /* Supporting Files */,
 			);
@@ -168,6 +176,10 @@
 		2CFCD18418F930B2002DC1A6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2CFCD1A418FBE273002DC1A6 /* STXOAI.h */,
+				2CFCD1A518FBE273002DC1A6 /* STXOAI.m */,
+				2CFCD1A618FBE273002DC1A6 /* STXOGameVC.h */,
+				2CFCD1A718FBE273002DC1A6 /* STXOGameVC.m */,
 				2CFCD18518F93120002DC1A6 /* STXOField.h */,
 				2CFCD18618F93120002DC1A6 /* STXOField.m */,
 				2CFCD18B18F9449A002DC1A6 /* STXOPlayer.h */,
@@ -176,6 +188,16 @@
 				2CFCD18918F94433002DC1A6 /* STXOGamePlay.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		2CFCD1AA18FBE282002DC1A6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2CFCD1AB18FBE29A002DC1A6 /* XO.png */,
+				2CFCD1AC18FBE29A002DC1A6 /* XOO.png */,
+				2CFCD1AD18FBE29A002DC1A6 /* XOX.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,10 +280,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CFCD1AF18FBE29A002DC1A6 /* XOO.png in Resources */,
+				2CFCD1AE18FBE29A002DC1A6 /* XO.png in Resources */,
 				2CFCD16318F9304B002DC1A6 /* Main_iPad.storyboard in Resources */,
 				2CFCD16818F9304B002DC1A6 /* Images.xcassets in Resources */,
 				2CFCD16018F9304B002DC1A6 /* Main_iPhone.storyboard in Resources */,
 				2CFCD15718F9304B002DC1A6 /* InfoPlist.strings in Resources */,
+				2CFCD1B018FBE29A002DC1A6 /* XOX.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,10 +305,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CFCD1A918FBE273002DC1A6 /* STXOGameVC.m in Sources */,
+				2CFCD1A818FBE273002DC1A6 /* STXOAI.m in Sources */,
 				2CFCD18718F93120002DC1A6 /* STXOField.m in Sources */,
 				2CFCD15D18F9304B002DC1A6 /* STXOAppDelegate.m in Sources */,
 				2CFCD18D18F9449A002DC1A6 /* STXOPlayer.m in Sources */,
-				2CFCD16618F9304B002DC1A6 /* STXOViewController.m in Sources */,
 				2CFCD15918F9304B002DC1A6 /* main.m in Sources */,
 				2CFCD18A18F94433002DC1A6 /* STXOGamePlay.m in Sources */,
 			);
@@ -502,6 +528,7 @@
 				2CFCD18018F9304B002DC1A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2CFCD18118F9304B002DC1A6 /* Build configuration list for PBXNativeTarget "XOTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +537,7 @@
 				2CFCD18318F9304B002DC1A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
