@@ -14,6 +14,8 @@
 @synthesize playerX = _playerX;
 @synthesize playerO = _playerO;
 @synthesize currentPlayer = _currentPlayer;
+@synthesize you = _you;
+@synthesize opp = _opp;
 @synthesize field = _field;
 @synthesize lastMove = _lastMove;
 
@@ -36,6 +38,31 @@
     
 }
 
++ (STXOGamePlay *)startGameWithYou:(STXOPlayer *)you andOpp:(STXOPlayer *)opp {
+    
+    STXOGamePlay *gamePlay = [[STXOGamePlay alloc] init];
+    
+    gamePlay.you = you;
+    gamePlay.opp = opp;
+    
+    NSArray *players = [NSArray arrayWithObjects:you, opp, nil];
+    
+    int rnd = arc4random() % 2;
+    gamePlay.playerO = [players objectAtIndex:rnd];
+    gamePlay.playerX = [players objectAtIndex:1-rnd];
+//    gamePlay.currentPlayer = gamePlay.playerX;
+    gamePlay.currentPlayer = gamePlay.you;
+    gamePlay.field = [STXOField initWithHCount:3 VCount:3];
+    
+    for (STXOPlayer *player in players) {
+        player.field = gamePlay.field;
+    }
+    
+    return gamePlay;
+
+}
+
+
 - (void)setPlayerX:(STXOPlayer *)player {
     player.gamePic = @"X";
     player.gameValue = 1;
@@ -49,7 +76,22 @@
 }
 
 - (void)setCurrentPlayer:(STXOPlayer *)currentPlayer {
+    
+    if (currentPlayer == self.you) {
+        NSLog(@"%@", self);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"yourMove" object:self];
+    } else if (currentPlayer == self.opp) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"oppsMove" object:self];
+    }
     _currentPlayer = currentPlayer;
+}
+
+- (void)setYou:(STXOPlayer *)you {
+    _you = you;
+}
+
+- (void)setOpp:(STXOPlayer *)opp {
+    _opp = opp;
 }
 
 - (void)setField:(STXOField *)field {
@@ -75,13 +117,13 @@
         lastMove.v = v;
         lastMove.gamePic = (char)[self.currentPlayer.gamePic UTF8String];
         self.lastMove = lastMove;
-        self.currentPlayer = (self.currentPlayer == self.playerX) ? self.playerO : self.playerX;
         
         NSValue *move = [NSValue valueWithBytes:&lastMove objCType:@encode(STXOCell)];
         [self.field.cells[h] replaceObjectAtIndex:v withObject:move];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"lastMove" object:self userInfo:[NSDictionary dictionaryWithObject:move forKey:@"move"]];
 
+        self.currentPlayer = (self.currentPlayer == self.playerX) ? self.playerO : self.playerX;
         
         BOOL CM = [self checkMove];
         
@@ -119,9 +161,9 @@
     BOOL result = YES;
     STXOCell cell;
     
-    for (int i = 0; i < self.field.hcount; i++) {
+    for (int i = 0; i < self.field.vcount; i++) {
         
-        [self.field.cells[i][self.lastMove.v] getValue:&cell];
+        [self.field.cells[self.lastMove.h][i] getValue:&cell];
         result = result && (cell.gamePic == gamePic);
         
     }
@@ -140,9 +182,9 @@
     BOOL result = YES;
     STXOCell cell;
 
-    for (int i = 0; i < self.field.vcount; i++) {
+    for (int i = 0; i < self.field.hcount; i++) {
 
-        [self.field.cells[self.lastMove.h][i] getValue:&cell];
+        [self.field.cells[i][self.lastMove.v] getValue:&cell];
         result = result && (cell.gamePic == gamePic);
         
     }

@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) STXOGamePlay *gamePlay;
 @property (weak, nonatomic) IBOutlet UICollectionView *fieldCV;
+@property (nonatomic) BOOL yourMove;
 
 @end
 
@@ -23,8 +24,28 @@
 
 - (void)drawMove:(NSNotification *)notification {
     
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.gamePlay.lastMove.v inSection:self.gamePlay.lastMove.h];
+    
+    UICollectionViewCell *cell = [self.fieldCV cellForItemAtIndexPath:indexPath];
+    cell = [self insertImageNamed:[NSString stringWithFormat:@"XO%@.png", self.gamePlay.currentPlayer.gamePic] intoCell:cell];
+    
 }
 
+- (void)fieldEnable {
+    
+    self.yourMove = YES;
+    
+    NSLog(@"Enable");
+    
+}
+
+- (void)fieldDisable {
+    
+    self.yourMove = NO;
+
+    NSLog(@"Disable");
+
+}
 
 #pragma mark - UICollectionViewDataSource, Delegate, DelegateFlowLayout
 
@@ -59,22 +80,20 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *gamePic = self.gamePlay.currentPlayer.gamePic;
-    
-    BOOL GVC = [self.gamePlay move:gamePic toH:indexPath.section V:indexPath.row];
-    
-//    NSLog(@"GVC %d", GVC);
-    
-    if (GVC) {
+    if (self.yourMove) {
         
-        UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-        cell = [self insertImageNamed:[NSString stringWithFormat:@"XO%@.png", gamePic] intoCell:cell];
+        NSString *gamePic = self.gamePlay.currentPlayer.gamePic;
         
-//        [self.fieldCV reloadItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+        if ([self.gamePlay move:gamePic toH:indexPath.section V:indexPath.row]) {
+            
+            UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+            cell = [self insertImageNamed:[NSString stringWithFormat:@"XO%@.png", gamePic] intoCell:cell];
+            
+        }
         
+        NSLog(@"%d %d", indexPath.section, indexPath.row);
+
     }
-    
-    NSLog(@"%d %d", indexPath.section, indexPath.row);
     
 }
 
@@ -83,6 +102,8 @@
 - (void)addObservers {
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawMove:) name:@"lastMove" object:self.gamePlay];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fieldEnable) name:@"yourMove" object:self.gamePlay];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fieldDisable) name:@"oppsMove" object:self.gamePlay];
     
 }
 
@@ -91,17 +112,25 @@
     self.fieldCV.dataSource = self;
     self.fieldCV.delegate = self;
     
-    STXOPlayer *p1 = [[STXOPlayer alloc] init];
-    p1.name = @"Xname";
+    STXOPlayer *you = [[STXOPlayer alloc] init];
+    you.name = @"YOU";
+        
+    STXOAI *opp = [[STXOAI alloc] init];
+    opp.name = @"OPP";
     
-    STXOAI *p2 = [[STXOAI alloc] init];
-    p2.name = @"Oname";
-    
-    self.gamePlay = [STXOGamePlay startGameWithPlayers:[NSArray arrayWithObjects:p1, p2, nil]];
-    
-    
+//    self.gamePlay = [STXOGamePlay startGameWithPlayers:[NSArray arrayWithObjects:p1, p2, nil]];
+
+    self.gamePlay = [STXOGamePlay startGameWithYou:you andOpp:opp];
+
     [self addObservers];
     
+    if (self.gamePlay.currentPlayer == you) {
+        [self fieldEnable];
+    }
+
+    NSLog(@"self.gamePlay %@", self.gamePlay);
+    
+
     
 //    [gamePlay move:@"X" toH:0 V:0];
 //    NSLog(@"%d", [gamePlay.field intValueForH:0 V:0]);
@@ -119,7 +148,7 @@
 //    
 //    NSLog(@"%@", self.gamePlay.field.cells);
     
-    [p2 fieldAnalyze];
+//    [p2 fieldAnalyze];
 
 }
 
