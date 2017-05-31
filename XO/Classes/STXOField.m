@@ -30,7 +30,7 @@
         
         for (int h = 0; h < self.hcount; h++) {
             
-            [cells insertObject:[NSMutableArray arrayWithCapacity:self.vcount] atIndex:h];
+            cells[h] = [NSMutableArray arrayWithCapacity:self.vcount];
             
             for (int v = 0; v < self.vcount; v++) {
                 
