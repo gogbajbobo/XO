@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C697F941EDF0983006E50FC /* GGBXOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C697F931EDF0983006E50FC /* GGBXOAppDelegate.m */; };
 		2CFCD14D18F9304B002DC1A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFCD14C18F9304B002DC1A6 /* Foundation.framework */; };
 		2CFCD14F18F9304B002DC1A6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFCD14E18F9304B002DC1A6 /* CoreGraphics.framework */; };
 		2CFCD15118F9304B002DC1A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFCD15018F9304B002DC1A6 /* UIKit.framework */; };
@@ -43,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		2C697F911EDF0725006E50FC /* GGBMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBMove.h; sourceTree = "<group>"; };
+		2C697F921EDF0983006E50FC /* GGBXOAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBXOAppDelegate.h; sourceTree = "<group>"; };
+		2C697F931EDF0983006E50FC /* GGBXOAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGBXOAppDelegate.m; sourceTree = "<group>"; };
 		2CB04D711EDF04780080A57B /* GGBPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBPlayer.h; sourceTree = "<group>"; };
 		2CB04D721EDF05510080A57B /* GGBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBGame.h; sourceTree = "<group>"; };
 		2CFCD14918F9304B002DC1A6 /* XO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XO.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +153,8 @@
 				2CFCD18418F930B2002DC1A6 /* Classes */,
 				2CFCD15B18F9304B002DC1A6 /* STXOAppDelegate.h */,
 				2CFCD15C18F9304B002DC1A6 /* STXOAppDelegate.m */,
+				2C697F921EDF0983006E50FC /* GGBXOAppDelegate.h */,
+				2C697F931EDF0983006E50FC /* GGBXOAppDelegate.m */,
 				2CFCD15E18F9304B002DC1A6 /* Main_iPhone.storyboard */,
 				2CFCD16118F9304B002DC1A6 /* Main_iPad.storyboard */,
 				2CFCD16718F9304B002DC1A6 /* Images.xcassets */,
@@ -259,11 +264,11 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = GGB;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Maxim Grigoriev";
 				TargetAttributes = {
 					2CFCD14818F9304B002DC1A6 = {
-						DevelopmentTeam = DP58H3X45C;
+						DevelopmentTeam = HXTB3SFBU4;
 					};
 					2CFCD16C18F9304B002DC1A6 = {
 						TestTargetID = 2CFCD14818F9304B002DC1A6;
@@ -319,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C697F941EDF0983006E50FC /* GGBXOAppDelegate.m in Sources */,
 				2CFCD1A918FBE273002DC1A6 /* STXOGameVC.m in Sources */,
 				2CFCD1A818FBE273002DC1A6 /* STXOAI.m in Sources */,
 				2CFCD18718F93120002DC1A6 /* STXOField.m in Sources */,
@@ -396,13 +402,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -415,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -435,20 +447,25 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -461,9 +478,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = HXTB3SFBU4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XO/XO-Prefix.pch";
 				INFOPLIST_FILE = "XO/XO-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "grigoriev.maxim-gmail.com.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -475,9 +494,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = HXTB3SFBU4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XO/XO-Prefix.pch";
 				INFOPLIST_FILE = "XO/XO-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "grigoriev.maxim-gmail.com.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -499,6 +520,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "XOTests/XOTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "grigoriev.maxim-gmail.com.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -517,6 +539,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XO/XO-Prefix.pch";
 				INFOPLIST_FILE = "XOTests/XOTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "grigoriev.maxim-gmail.com.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
