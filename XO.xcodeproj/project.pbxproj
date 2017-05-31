@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2C697F941EDF0983006E50FC /* GGBXOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C697F931EDF0983006E50FC /* GGBXOAppDelegate.m */; };
+		2C697F9B1EDF0ABD006E50FC /* GGBXOStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C697F9A1EDF0ABD006E50FC /* GGBXOStoryboard.storyboard */; };
 		2CFCD14D18F9304B002DC1A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFCD14C18F9304B002DC1A6 /* Foundation.framework */; };
 		2CFCD14F18F9304B002DC1A6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFCD14E18F9304B002DC1A6 /* CoreGraphics.framework */; };
 		2CFCD15118F9304B002DC1A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFCD15018F9304B002DC1A6 /* UIKit.framework */; };
 		2CFCD15718F9304B002DC1A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD15518F9304B002DC1A6 /* InfoPlist.strings */; };
 		2CFCD15918F9304B002DC1A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD15818F9304B002DC1A6 /* main.m */; };
-		2CFCD16018F9304B002DC1A6 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD15E18F9304B002DC1A6 /* Main_iPhone.storyboard */; };
-		2CFCD16318F9304B002DC1A6 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD16118F9304B002DC1A6 /* Main_iPad.storyboard */; };
 		2CFCD16818F9304B002DC1A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD16718F9304B002DC1A6 /* Images.xcassets */; };
 		2CFCD16F18F9304B002DC1A6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFCD16E18F9304B002DC1A6 /* XCTest.framework */; };
 		2CFCD17018F9304B002DC1A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFCD14C18F9304B002DC1A6 /* Foundation.framework */; };
@@ -45,6 +44,7 @@
 		2C697F911EDF0725006E50FC /* GGBMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBMove.h; sourceTree = "<group>"; };
 		2C697F921EDF0983006E50FC /* GGBXOAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBXOAppDelegate.h; sourceTree = "<group>"; };
 		2C697F931EDF0983006E50FC /* GGBXOAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGBXOAppDelegate.m; sourceTree = "<group>"; };
+		2C697F9A1EDF0ABD006E50FC /* GGBXOStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GGBXOStoryboard.storyboard; sourceTree = "<group>"; };
 		2CB04D711EDF04780080A57B /* GGBPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBPlayer.h; sourceTree = "<group>"; };
 		2CB04D721EDF05510080A57B /* GGBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBGame.h; sourceTree = "<group>"; };
 		2CFCD14918F9304B002DC1A6 /* XO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XO.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,8 +55,6 @@
 		2CFCD15618F9304B002DC1A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2CFCD15818F9304B002DC1A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2CFCD15A18F9304B002DC1A6 /* XO-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XO-Prefix.pch"; sourceTree = "<group>"; };
-		2CFCD15F18F9304B002DC1A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		2CFCD16218F9304B002DC1A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		2CFCD16718F9304B002DC1A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2CFCD16D18F9304B002DC1A6 /* XOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFCD16E18F9304B002DC1A6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -102,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C697F951EDF0A42006E50FC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2C697F9A1EDF0ABD006E50FC /* GGBXOStoryboard.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		2CB04D701EDF04000080A57B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,13 +151,12 @@
 		2CFCD15218F9304B002DC1A6 /* XO */ = {
 			isa = PBXGroup;
 			children = (
+				2C697F951EDF0A42006E50FC /* Storyboards */,
 				2CB04D701EDF04000080A57B /* Protocols */,
 				2CFCD1AA18FBE282002DC1A6 /* Resources */,
 				2CFCD18418F930B2002DC1A6 /* Classes */,
 				2C697F921EDF0983006E50FC /* GGBXOAppDelegate.h */,
 				2C697F931EDF0983006E50FC /* GGBXOAppDelegate.m */,
-				2CFCD15E18F9304B002DC1A6 /* Main_iPhone.storyboard */,
-				2CFCD16118F9304B002DC1A6 /* Main_iPad.storyboard */,
 				2CFCD16718F9304B002DC1A6 /* Images.xcassets */,
 				2CFCD15318F9304B002DC1A6 /* Supporting Files */,
 			);
@@ -295,10 +300,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CFCD1AF18FBE29A002DC1A6 /* XOO.png in Resources */,
+				2C697F9B1EDF0ABD006E50FC /* GGBXOStoryboard.storyboard in Resources */,
 				2CFCD1AE18FBE29A002DC1A6 /* XO.png in Resources */,
-				2CFCD16318F9304B002DC1A6 /* Main_iPad.storyboard in Resources */,
 				2CFCD16818F9304B002DC1A6 /* Images.xcassets in Resources */,
-				2CFCD16018F9304B002DC1A6 /* Main_iPhone.storyboard in Resources */,
 				2CFCD15718F9304B002DC1A6 /* InfoPlist.strings in Resources */,
 				2CFCD1B018FBE29A002DC1A6 /* XOX.png in Resources */,
 			);
@@ -354,22 +358,6 @@
 				2CFCD15618F9304B002DC1A6 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		2CFCD15E18F9304B002DC1A6 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2CFCD15F18F9304B002DC1A6 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		2CFCD16118F9304B002DC1A6 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2CFCD16218F9304B002DC1A6 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		2CFCD17718F9304B002DC1A6 /* InfoPlist.strings */ = {
