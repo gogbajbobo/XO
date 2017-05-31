@@ -9,6 +9,9 @@
 #import "STXOGamePlay.h"
 #include <stdlib.h>
 
+#import "GGBGame.h"
+
+
 @implementation STXOGamePlay
 
 @synthesize playerX = _playerX;

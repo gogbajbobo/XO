@@ -42,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C697F911EDF0725006E50FC /* GGBMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBMove.h; sourceTree = "<group>"; };
+		2CB04D711EDF04780080A57B /* GGBPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBPlayer.h; sourceTree = "<group>"; };
+		2CB04D721EDF05510080A57B /* GGBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBGame.h; sourceTree = "<group>"; };
 		2CFCD14918F9304B002DC1A6 /* XO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFCD14C18F9304B002DC1A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2CFCD14E18F9304B002DC1A6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,6 +102,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CB04D701EDF04000080A57B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2CB04D711EDF04780080A57B /* GGBPlayer.h */,
+				2CB04D721EDF05510080A57B /* GGBGame.h */,
+				2C697F911EDF0725006E50FC /* GGBMove.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		2CFCD14018F9304B002DC1A6 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +145,7 @@
 		2CFCD15218F9304B002DC1A6 /* XO */ = {
 			isa = PBXGroup;
 			children = (
+				2CB04D701EDF04000080A57B /* Protocols */,
 				2CFCD1AA18FBE282002DC1A6 /* Resources */,
 				2CFCD18418F930B2002DC1A6 /* Classes */,
 				2CFCD15B18F9304B002DC1A6 /* STXOAppDelegate.h */,
@@ -244,7 +258,7 @@
 		2CFCD14118F9304B002DC1A6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = STXO;
+				CLASSPREFIX = GGB;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Maxim Grigoriev";
 				TargetAttributes = {
