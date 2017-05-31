@@ -57,56 +57,48 @@
 
 - (BOOL)move:(NSString *)move toH:(int)h V:(int)v {
     
-    if (h < self.hcount && v < self.vcount) {
-        
-        if ([move isEqualToString:@"X"] || [move isEqualToString:@"O"]) {
-            
-            STXOCell cell;
-            [self.cells[h][v] getValue:&cell];
-
-            if (cell.gamePic == EMPTY_CELL) {
-                                
-                cell.gamePic = (char)[move UTF8String];
-                NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
-                [self.cells[h] replaceObjectAtIndex:v withObject:cellValue];
-                
-                return YES;
-
-            } else {
-                return NO;
-            }
-
-        } else {
-            return NO;
-        }
-
-    } else {
+    if (h >= self.hcount || v >= self.vcount) {
         return NO;
     }
+    
+    if (![move isEqualToString:@"X"] && ![move isEqualToString:@"O"]) {
+        return NO;
+    }
+    
+    STXOCell cell;
+    [self.cells[h][v] getValue:&cell];
+
+    if (cell.gamePic != EMPTY_CELL) {
+        return NO;
+    }
+    
+    cell.gamePic = (char)[move UTF8String];
+    NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
+    [self.cells[h] replaceObjectAtIndex:v withObject:cellValue];
+    
+    return YES;
     
 }
 
 - (BOOL)setValue:(int)value toH:(int)h V:(int)v {
-    
-    if (h < self.hcount && v < self.vcount) {
-        
-        STXOCell cell;
-        [self.cells[h][v] getValue:&cell];
 
-        if (cell.value == 0) {
-            
-            cell.value = value;
-            
-            NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
-            [self.cells[h] replaceObjectAtIndex:v withObject:cellValue];
-            
-            return YES;
-            
-        }
-        
+    if (h >= self.hcount || v >= self.vcount) {
+        return NO;
     }
+    
+    STXOCell cell;
+    [self.cells[h][v] getValue:&cell];
 
-    return NO;
+    if (cell.value != 0) {
+        return NO;
+    }
+    
+    cell.value = value;
+    
+    NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
+    [self.cells[h] replaceObjectAtIndex:v withObject:cellValue];
+    
+    return YES;
     
 }
 
