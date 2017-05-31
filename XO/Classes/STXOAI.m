@@ -12,6 +12,8 @@
 
 - (STXOCell)makeMove {
     
+    [self fieldAnalyze];
+    
     STXOCell cell;
     return cell;
     
@@ -38,7 +40,7 @@
             
             sum += cell.value;
             
-//            NSLog(@"%d %d", sum, cell.h);
+            NSLog(@"hAnalyze sum %d h%d v%d", sum, cell.h, cell.v);
             
         }
         

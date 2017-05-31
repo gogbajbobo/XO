@@ -40,6 +40,7 @@
                 cell.value = 0;
                 NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
                 [cells[h] insertObject:cellValue atIndex:v];
+                NSLog(@"cells create h%d v%d", cell.h, cell.v);
             }
             
         }

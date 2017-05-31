@@ -35,15 +35,16 @@
     
     self.yourMove = YES;
     
-    NSLog(@"Enable");
+//    NSLog(@"Enable");
     
 }
 
 - (void)fieldDisable {
     
     self.yourMove = NO;
+    [self.gamePlay.opp makeMove];
 
-    NSLog(@"Disable");
+//    NSLog(@"Disable");
 
 }
 
