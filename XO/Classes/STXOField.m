@@ -12,7 +12,7 @@
 
 @implementation STXOField
 
-+ (STXOField *)initWithHCount:(int)hcount VCount:(int)vcount {
++ (STXOField *)initWithHCount:(NSInteger)hcount VCount:(NSInteger)vcount {
 
     STXOField *field = [[STXOField alloc] init];
     field.hcount = hcount;
@@ -41,7 +41,7 @@
                 cell.value = 0;
                 NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
                 [cells[h] insertObject:cellValue atIndex:v];
-                NSLog(@"cells create h%d v%d", cell.h, cell.v);
+                NSLog(@"cells create h%@ v%@", @(cell.h), @(cell.v));
                 
             }
             
@@ -55,7 +55,7 @@
 }
 
 
-- (BOOL)move:(NSString *)move toH:(int)h V:(int)v {
+- (BOOL)move:(NSString *)move toH:(NSInteger)h andV:(NSInteger)v {
     
     if (h >= self.hcount || v >= self.vcount) {
         return NO;
@@ -80,7 +80,7 @@
     
 }
 
-- (BOOL)setValue:(int)value toH:(int)h V:(int)v {
+- (BOOL)setValue:(NSInteger)value toH:(NSInteger)h andV:(NSInteger)v {
 
     if (h >= self.hcount || v >= self.vcount) {
         return NO;
@@ -102,7 +102,7 @@
     
 }
 
-- (char)valueForH:(int)h V:(int)v {
+- (char)valueForH:(NSInteger)h andV:(NSInteger)v {
     
     STXOCell cell;
     [self.cells[h][v] getValue:&cell];
@@ -111,7 +111,7 @@
     
 }
 
-- (int)intValueForH:(int)h V:(int)v {
+- (NSInteger)intValueForH:(NSInteger)h andV:(NSInteger)v {
 
     STXOCell cell;
     [self.cells[h][v] getValue:&cell];

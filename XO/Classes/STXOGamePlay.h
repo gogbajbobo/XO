@@ -29,6 +29,6 @@
 + (STXOGamePlay *)startGameWithPlayers:(NSArray *)players;
 + (STXOGamePlay *)startGameWithYou:(STXOPlayer *)you andOpp:(STXOPlayer *)opp;
 
-- (BOOL)move:(NSString *)move toH:(int)h V:(int)v;
+- (BOOL)move:(NSString *)move toH:(NSInteger)h andV:(NSInteger)v;
 
 @end

@@ -85,14 +85,14 @@
         
         NSString *gamePic = self.gamePlay.currentPlayer.gamePic;
         
-        if ([self.gamePlay move:gamePic toH:indexPath.section V:indexPath.row]) {
+        if ([self.gamePlay move:gamePic toH:indexPath.section andV:indexPath.row]) {
             
             UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
             cell = [self insertImageNamed:[NSString stringWithFormat:@"XO%@.png", gamePic] intoCell:cell];
             
         }
         
-        NSLog(@"%d %d", indexPath.section, indexPath.row);
+        NSLog(@"%@ %@", @(indexPath.section), @(indexPath.row));
 
     }
     
@@ -102,9 +102,22 @@
 
 - (void)addObservers {
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawMove:) name:@"lastMove" object:self.gamePlay];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fieldEnable) name:@"yourMove" object:self.gamePlay];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fieldDisable) name:@"oppsMove" object:self.gamePlay];
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self
+           selector:@selector(drawMove:)
+               name:@"lastMove"
+             object:self.gamePlay];
+    
+    [nc addObserver:self
+           selector:@selector(fieldEnable)
+               name:@"yourMove"
+             object:self.gamePlay];
+    
+    [nc addObserver:self
+           selector:@selector(fieldDisable)
+               name:@"oppsMove"
+             object:self.gamePlay];
     
 }
 

@@ -9,25 +9,25 @@
 #import <Foundation/Foundation.h>
 
 typedef struct STXOCell {
-    int h;
-    int v;
+    NSInteger h;
+    NSInteger v;
     char gamePic;
-    int value;
+    NSInteger value;
 } STXOCell;
 
 @interface STXOField : NSObject
 
-@property (nonatomic) int hcount;
-@property (nonatomic) int vcount;
+@property (nonatomic) NSInteger hcount;
+@property (nonatomic) NSInteger vcount;
 @property (nonatomic, strong) NSMutableArray *cells;
 
-+ (STXOField *)initWithHCount:(int)hcount VCount:(int)vcount;
++ (STXOField *)initWithHCount:(NSInteger)hcount VCount:(NSInteger)vcount;
 
-- (BOOL)move:(NSString *)move toH:(int)h V:(int)v;
-- (BOOL)setValue:(int)value toH:(int)h V:(int)v;
+- (BOOL)move:(NSString *)move toH:(NSInteger)h andV:(NSInteger)v;
+- (BOOL)setValue:(NSInteger)value toH:(NSInteger)h andV:(NSInteger)v;
 
-- (char)valueForH:(int)h V:(int)v;
-- (int)intValueForH:(int)h V:(int)v;
+- (char)valueForH:(NSInteger)h andV:(NSInteger)v;
+- (NSInteger)intValueForH:(NSInteger)h andV:(NSInteger)v;
 
 
 @end

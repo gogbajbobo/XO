@@ -102,11 +102,11 @@
     _lastMove = lastMove;
 }
 
-- (BOOL)move:(NSString *)move toH:(int)h V:(int)v {
+- (BOOL)move:(NSString *)move toH:(NSInteger)h andV:(NSInteger)v {
     
 //    if ([self.field move:move toH:h V:v]) {
     
-    BOOL GP = [self.field setValue:self.currentPlayer.gameValue toH:h V:v];
+    BOOL GP = [self.field setValue:self.currentPlayer.gameValue toH:h andV:v];
     
 //    NSLog(@"GP %d", GP);
     
