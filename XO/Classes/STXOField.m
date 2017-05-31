@@ -33,6 +33,7 @@
             [cells insertObject:[NSMutableArray arrayWithCapacity:self.vcount] atIndex:h];
             
             for (int v = 0; v < self.vcount; v++) {
+                
                 STXOCell cell;
                 cell.h = h - 1;
                 cell.v = v - 1;
@@ -41,6 +42,7 @@
                 NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
                 [cells[h] insertObject:cellValue atIndex:v];
                 NSLog(@"cells create h%d v%d", cell.h, cell.v);
+                
             }
             
         }

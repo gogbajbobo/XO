@@ -29,4 +29,5 @@ typedef struct STXOCell {
 - (char)valueForH:(int)h V:(int)v;
 - (int)intValueForH:(int)h V:(int)v;
 
+
 @end
