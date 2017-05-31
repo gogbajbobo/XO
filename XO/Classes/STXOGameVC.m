@@ -24,10 +24,15 @@
 
 - (void)drawMove:(NSNotification *)notification {
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.gamePlay.lastMove.v inSection:self.gamePlay.lastMove.h];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.gamePlay.lastMove.v
+                                                inSection:self.gamePlay.lastMove.h];
     
     UICollectionViewCell *cell = [self.fieldCV cellForItemAtIndexPath:indexPath];
-    cell = [self insertImageNamed:[NSString stringWithFormat:@"XO%@.png", self.gamePlay.currentPlayer.gamePic] intoCell:cell];
+    
+    NSString *imageName = [NSString stringWithFormat:@"XO%@.png", self.gamePlay.currentPlayer.gamePic];
+    
+    cell = [self insertImageNamed:imageName
+                         intoCell:cell];
     
 }
 
@@ -60,8 +65,10 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellViewCell" forIndexPath:indexPath];
-    cell = [self insertImageNamed:@"XO.png" intoCell:cell];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellViewCell"
+                                                                           forIndexPath:indexPath];
+    cell = [self insertImageNamed:@"XO.png"
+                         intoCell:cell];
 
     return cell;
     
@@ -70,7 +77,9 @@
 - (UICollectionViewCell *)insertImageNamed:(NSString *)imageName intoCell:(UICollectionViewCell *)cell {
     
     [[cell.contentView viewWithTag:1] removeFromSuperview];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, cell.contentView.frame.size.width, cell.contentView.frame.size.height)];
+    
+    CGRect frame = CGRectMake(0, 0, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
     imageView.image = [UIImage imageNamed:imageName];
     imageView.tag = 1;
     [cell.contentView addSubview:imageView];
@@ -85,10 +94,18 @@
         
         NSString *gamePic = self.gamePlay.currentPlayer.gamePic;
         
-        if ([self.gamePlay move:gamePic toH:indexPath.section andV:indexPath.row]) {
+        BOOL move = [self.gamePlay move:gamePic
+                                    toH:indexPath.section
+                                   andV:indexPath.row];
+        
+        if (move) {
             
             UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-            cell = [self insertImageNamed:[NSString stringWithFormat:@"XO%@.png", gamePic] intoCell:cell];
+            
+            NSString *imageName = [NSString stringWithFormat:@"XO%@.png", gamePic];
+            
+            cell = [self insertImageNamed:imageName
+                                 intoCell:cell];
             
         }
         
@@ -132,9 +149,8 @@
     STXOAI *opp = [[STXOAI alloc] init];
     opp.name = @"OPP";
     
-//    self.gamePlay = [STXOGamePlay startGameWithPlayers:[NSArray arrayWithObjects:p1, p2, nil]];
-
-    self.gamePlay = [STXOGamePlay startGameWithYou:you andOpp:opp];
+    self.gamePlay = [STXOGamePlay startGameWithYou:you
+                                            andOpp:opp];
 
     [self addObservers];
     

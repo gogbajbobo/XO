@@ -31,7 +31,7 @@
     
     for (NSArray *row in self.field.cells) {
 
-        int sum = 0;
+        NSInteger sum = 0;
 
         for (NSValue *cellValue in row) {
             
@@ -40,7 +40,7 @@
             
             sum += cell.value;
             
-            NSLog(@"hAnalyze sum %d h%d v%d", sum, cell.h, cell.v);
+            NSLog(@"hAnalyze sum %@ h%@ v%@", @(sum), @(cell.h), @(cell.v));
             
         }
         

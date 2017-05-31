@@ -21,13 +21,22 @@ typedef struct STXOCell {
 @property (nonatomic) NSInteger vcount;
 @property (nonatomic, strong) NSMutableArray *cells;
 
-+ (STXOField *)initWithHCount:(NSInteger)hcount VCount:(NSInteger)vcount;
++ (STXOField *)initWithHCount:(NSInteger)hcount
+                       VCount:(NSInteger)vcount;
 
-- (BOOL)move:(NSString *)move toH:(NSInteger)h andV:(NSInteger)v;
-- (BOOL)setValue:(NSInteger)value toH:(NSInteger)h andV:(NSInteger)v;
+- (BOOL)move:(NSString *)move
+         toH:(NSInteger)h
+        andV:(NSInteger)v;
 
-- (char)valueForH:(NSInteger)h andV:(NSInteger)v;
-- (NSInteger)intValueForH:(NSInteger)h andV:(NSInteger)v;
+- (BOOL)setValue:(NSInteger)value
+             toH:(NSInteger)h
+            andV:(NSInteger)v;
+
+- (char)valueForH:(NSInteger)h
+             andV:(NSInteger)v;
+
+- (NSInteger)intValueForH:(NSInteger)h
+                     andV:(NSInteger)v;
 
 
 @end

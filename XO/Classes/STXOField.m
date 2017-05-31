@@ -32,15 +32,20 @@
             
             cells[h] = [NSMutableArray arrayWithCapacity:self.vcount];
             
-            for (int v = 0; v < self.vcount; v++) {
+            for (NSInteger v = 0; v < self.vcount; v++) {
                 
                 STXOCell cell;
                 cell.h = h - 1;
                 cell.v = v - 1;
                 cell.gamePic = EMPTY_CELL;
                 cell.value = 0;
-                NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
-                [cells[h] insertObject:cellValue atIndex:v];
+                
+                NSValue *cellValue = [NSValue valueWithBytes:&cell
+                                                    objCType:@encode(STXOCell)];
+                
+                [cells[h] insertObject:cellValue
+                               atIndex:v];
+                
                 NSLog(@"cells create h%@ v%@", @(cell.h), @(cell.v));
                 
             }
@@ -72,9 +77,13 @@
         return NO;
     }
     
-    cell.gamePic = (char)[move UTF8String];
-    NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
-    [self.cells[h] replaceObjectAtIndex:v withObject:cellValue];
+    cell.gamePic = (char)move.UTF8String;
+    
+    NSValue *cellValue = [NSValue valueWithBytes:&cell
+                                        objCType:@encode(STXOCell)];
+    
+    [self.cells[h] replaceObjectAtIndex:v
+                             withObject:cellValue];
     
     return YES;
     
@@ -95,8 +104,11 @@
     
     cell.value = value;
     
-    NSValue *cellValue = [NSValue valueWithBytes:&cell objCType:@encode(STXOCell)];
-    [self.cells[h] replaceObjectAtIndex:v withObject:cellValue];
+    NSValue *cellValue = [NSValue valueWithBytes:&cell
+                                        objCType:@encode(STXOCell)];
+    
+    [self.cells[h] replaceObjectAtIndex:v
+                             withObject:cellValue];
     
     return YES;
     
