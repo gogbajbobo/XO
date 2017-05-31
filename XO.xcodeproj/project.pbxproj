@@ -13,7 +13,6 @@
 		2CFCD15118F9304B002DC1A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFCD15018F9304B002DC1A6 /* UIKit.framework */; };
 		2CFCD15718F9304B002DC1A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD15518F9304B002DC1A6 /* InfoPlist.strings */; };
 		2CFCD15918F9304B002DC1A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD15818F9304B002DC1A6 /* main.m */; };
-		2CFCD15D18F9304B002DC1A6 /* STXOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD15C18F9304B002DC1A6 /* STXOAppDelegate.m */; };
 		2CFCD16018F9304B002DC1A6 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD15E18F9304B002DC1A6 /* Main_iPhone.storyboard */; };
 		2CFCD16318F9304B002DC1A6 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD16118F9304B002DC1A6 /* Main_iPad.storyboard */; };
 		2CFCD16818F9304B002DC1A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CFCD16718F9304B002DC1A6 /* Images.xcassets */; };
@@ -56,8 +55,6 @@
 		2CFCD15618F9304B002DC1A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2CFCD15818F9304B002DC1A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2CFCD15A18F9304B002DC1A6 /* XO-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XO-Prefix.pch"; sourceTree = "<group>"; };
-		2CFCD15B18F9304B002DC1A6 /* STXOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STXOAppDelegate.h; sourceTree = "<group>"; };
-		2CFCD15C18F9304B002DC1A6 /* STXOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STXOAppDelegate.m; sourceTree = "<group>"; };
 		2CFCD15F18F9304B002DC1A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		2CFCD16218F9304B002DC1A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		2CFCD16718F9304B002DC1A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -151,8 +148,6 @@
 				2CB04D701EDF04000080A57B /* Protocols */,
 				2CFCD1AA18FBE282002DC1A6 /* Resources */,
 				2CFCD18418F930B2002DC1A6 /* Classes */,
-				2CFCD15B18F9304B002DC1A6 /* STXOAppDelegate.h */,
-				2CFCD15C18F9304B002DC1A6 /* STXOAppDelegate.m */,
 				2C697F921EDF0983006E50FC /* GGBXOAppDelegate.h */,
 				2C697F931EDF0983006E50FC /* GGBXOAppDelegate.m */,
 				2CFCD15E18F9304B002DC1A6 /* Main_iPhone.storyboard */,
@@ -328,7 +323,6 @@
 				2CFCD1A918FBE273002DC1A6 /* STXOGameVC.m in Sources */,
 				2CFCD1A818FBE273002DC1A6 /* STXOAI.m in Sources */,
 				2CFCD18718F93120002DC1A6 /* STXOField.m in Sources */,
-				2CFCD15D18F9304B002DC1A6 /* STXOAppDelegate.m in Sources */,
 				2CFCD18D18F9449A002DC1A6 /* STXOPlayer.m in Sources */,
 				2CFCD15918F9304B002DC1A6 /* main.m in Sources */,
 				2CFCD18A18F94433002DC1A6 /* STXOGamePlay.m in Sources */,
